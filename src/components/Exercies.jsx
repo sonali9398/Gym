@@ -13,7 +13,8 @@ const Exercies = ({exercises, setExercises, bodyPart}) =>{
     const paginate = (e, value) =>{
         setCurrentPage(value);
         window.scrollTo({top:1800, behavior:'smooth'})
-    }
+    };
+
     return(
         <Box id='exercises'
         sx={{mt:{lg:'110px'}}}
@@ -25,7 +26,7 @@ const Exercies = ({exercises, setExercises, bodyPart}) =>{
 
             <Stack direction='row' sx={{gap:{lg:'110px', xs:'50px'}}} flexWrap='wrap' justifyContent='center'>
                 {exercises.map((exercise, index) =>(
-                    <ExerciseCard key={index} exercies={exercise}/>
+                    <ExerciseCard key={index} exercise={exercise}/>
                 ))}
             </Stack>
 
@@ -37,7 +38,7 @@ const Exercies = ({exercises, setExercises, bodyPart}) =>{
                         defaultPage={1}
                         count={Math.ceil(exercises.length / 9)}
                         page={currentPage}
-                        onChange={(e) => paginate(e, value)}
+                        onChange={(e) => paginate}
                         size='large'
                     />
                 )}
