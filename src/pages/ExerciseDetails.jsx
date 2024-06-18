@@ -8,6 +8,8 @@ import {exerciseOptions, fetchData} from '../utils/fetchData'
 
 const ExerciseDetails = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
+  const [exercisesVideo, setExercisesVideo] = useState({});
+
 
   const {id} = useParams();
 
@@ -18,8 +20,12 @@ const ExerciseDetails = () => {
       const ytSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
 
       const exerciseDetailData = await fetchData(`${exercisesUrl}/exercises/exercise/${id}`, exerciseOptions)
-      console.log(exerciseDetailData)
+      // console.log(exerciseDetailData)
       setExerciseDetail(exerciseDetailData);
+
+      const exercisesVideos= await fetchData(`${ytSearchUrl}/search?q=${exerciseDetailName.name}`, exerciseOptions);
+      setExercisesVideo(exercisesVideos)
+    
     }
     
 

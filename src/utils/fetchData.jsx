@@ -2,11 +2,19 @@ export const exerciseOptions = {
         
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': '3f37b68d81mshf810da3429030dbp1fd7c7jsn400272583b04',
+          'X-RapidAPI-Key': process.env.REACT_API_KEY,
           'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
         },
       
-}
+      }
+
+export const ytOptions = {
+  method:'GET',
+  headers:{
+    'x-rapidapi-key': process.env.REACT_API_KEY,
+		'x-rapidapi-host': 'youtube-search-and-download.p.rapidapi.com',
+  },
+};
 
 export const fetchData = async (url, options) => {
     const response = await fetch (url, options);
